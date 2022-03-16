@@ -4,12 +4,20 @@ import Tile from "./game-Tile.js";
 
 const gameBoard = document.getElementById("game-board");
 const scoreAmountElem = document.querySelector("[data-score-amount]");
+const bestScoreAmountElem = document.querySelector("[data-best-score-amount]");
 
 const grid = new Grid(gameBoard);
 grid.randomEmptyCell().tile = new Tile(gameBoard);
 grid.randomEmptyCell().tile = new Tile(gameBoard);
 setupInput();
 showScore();
+
+const bestScore = localStorage.getItem("bestScore");
+if (bestScore == null || bestScore == undefined) {
+  localStorage.setItem("bestScore", 0);
+} else {
+  bestScoreAmountElem.textContent = bestScore;
+}
 
 function setupInput() {
   window.addEventListener("keydown", handleInput, { once: true });
@@ -264,9 +272,22 @@ function canMove(cells) {
 function showScore(additionalScore) {
   if (additionalScore != null) {
     const currentScore = scoreAmountElem.textContent;
-    scoreAmountElem.textContent = +currentScore + +additionalScore;
+    const score = +currentScore + +additionalScore;
+    scoreAmountElem.textContent = score;
+    showBestScore(score);
   }
 }
+
+function showBestScore(score) {
+  const bestScore = localStorage.getItem("bestScore");
+
+  if (bestScore == null || bestScore == undefined || bestScore <= score) {
+    bestScoreAmountElem.textContent = score;
+    localStorage.setItem("bestScore", score);
+    return;
+  }
+}
+
 /*=============== CLOSE MODAL ===============*/
 const closeBtn = document.querySelectorAll(".close-modal");
 

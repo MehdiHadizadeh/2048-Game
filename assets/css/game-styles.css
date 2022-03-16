@@ -49,9 +49,7 @@ a {
 
 .stat-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
 .stat-label {
@@ -60,6 +58,7 @@ a {
   text-align: center;
   line-height: 1.2;
   position: relative;
+  display: block;
 }
 
 .score {
