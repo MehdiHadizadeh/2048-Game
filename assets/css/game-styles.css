@@ -44,12 +44,11 @@ a {
   margin: 0;
   font-size: max(5vmin, 20px);
   color: #ccc;
-  /* flex-grow: 1; */
 }
 
 .stat-container {
   display: flex;
-  gap: 0.5rem;
+  gap: 2.5rem;
 }
 
 .stat-label {
@@ -134,5 +133,44 @@ a {
   0% {
     opacity: 0.5;
     transform: scale(0);
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.footer .box {
+  display: flex;
+  gap: 0.5rem;
+  grid-column: repeat(2, 1fr);
+  width: 20rem;
+  justify-content: space-around;
+  background: #a9b3bf;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+.footer .box a {
+  width: 100%;
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  transition: 0.2s;
+  color: black;
+}
+
+.footer .box a:hover {
+  background: rgb(31 41 55/1);
+  color: white;
+}
+
+@media screen and (max-width: 568px) {
+  .footer .box {
+    width: 16rem
   }
 }
