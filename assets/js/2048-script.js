@@ -1,5 +1,5 @@
-import Grid from "./game-Grid.js";
-import Tile from "./game-Tile.js";
+import Grid from "./2048-Grid.js";
+import Tile from "./2048-Tile.js";
 // import InputHandler from "./game-InputHandler.js";
 
 const gameBoard = document.getElementById("game-board");
